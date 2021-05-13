@@ -19,7 +19,7 @@ const PostComponent = () => {
             
             {/* description and type */}
             <Text style={styles.title} numberOfLines={2}>
-                Jeep Wrangler
+            Mercedes G class
             </Text>
 
             {/* Old price and new price */}
@@ -31,14 +31,16 @@ const PostComponent = () => {
                 100,000
                 </Text>
                 <Text style={styles.newPrice} >
-                    80,000/day
+                80,000/day
                 </Text>
                 
             </View>
 
             {/* Total price */}
             <Text style={styles.totalPrice}>
-                ugx 500,000
+            <Text style={styles.prefix} >
+                UGX
+            </Text> 500,000
             </Text>
         </View>
     )
