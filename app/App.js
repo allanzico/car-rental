@@ -22,8 +22,10 @@ import PostComponent from './src/components/Post/PostComponent';
 import CarFilterScreen from './src/screens/CarFilter/CarFilterScreen';
 import HomeScreen from './src/screens/Home/HomeScreen';
 import LocationsScreen from './src/screens/Locations/LocationsScreen';
+import 'react-native-gesture-handler';
 
 import SearchResultsScreen from './src/screens/SearchResults/SearchResultsScreen';
+import Router from './src/navigation/Router';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,16 +37,12 @@ const App: () => Node = () => {
   // dummy data
  
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
- 
-   {/* <PostComponent post={post1}/> */}
+      <Router/>
+
+    </>
    
-   {/* <SearchResultsScreen/> */}
-   {/* <LocationsScreen/> */}
-        {/* <HomeScreen/> */}
-        <CarFilterScreen/>
-    </SafeAreaView>
   );
 };
 
