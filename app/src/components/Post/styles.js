@@ -2,22 +2,30 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-           margin: 20
+         
+           marginHorizontal: 20,
+           marginVertical: 10      
     },
     image: {
         width: '100%',
        aspectRatio: 3/2,
        resizeMode: 'cover',
-       borderRadius: 10
+       borderRadius: 5,
+       marginBottom: 5
     },
-    seats: {
+    passengersContainer: {
         marginVertical: 5,
-        flexDirection: 'row',
-        alignItems: "center"
+        flexDirection: 'row',   
     },
-    seatsText: {
+    passengers: {
+        marginHorizontal: 5,
+        flexDirection: 'row',
+        alignItems: "center",
+        
+    },
+    passengersText: {
             fontSize: 14,
-            marginHorizontal: 5,
+            marginHorizontal: 1,
             color: 'grey'
     },
     title: {
@@ -49,7 +57,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }, 
     totalPrice: {
-
+        fontSize: 16,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline'
     },
    
     

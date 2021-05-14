@@ -21,7 +21,7 @@ import {
 import PostComponent from './src/components/Post/PostComponent';
 import HomeScreen from './src/screens/Home/HomeScreen';
 
-
+import SearchResultsScreen from './src/screens/SearchResults/SearchResultsScreen';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -30,10 +30,17 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  // dummy data
+ 
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-    <PostComponent/>
+ 
+   {/* <PostComponent post={post1}/> */}
+   
+   <SearchResultsScreen/>
+  
+   
         {/* <HomeScreen/> */}
     </SafeAreaView>
   );

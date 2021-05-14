@@ -2,24 +2,47 @@ import React from 'react'
 import { View, Text, Image} from 'react-native'
 import styles from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import NumberFormat from 'react-number-format';
 
-const PostComponent = () => {
+const PostComponent = (props) => {
+  const post = props.post;
     return (
         <View style={styles.container}>
             {/* image */}
-        <Image source={{ uri:'https://cdn.pixabay.com/photo/2017/06/22/18/52/rubicon-2432058_960_720.jpg' }} style={styles.image}/>
+        <Image source={{ uri:post.image }} style={styles.image}/>
 
             {/* passengers */}
-            <View style={styles.seats}>
-                <MaterialCommunityIcons name={'car-seat'} size={18} color={'#1b262c'}/>
-            <Text style={styles.seatsText}>
-                5 seats
-            </Text>
+            <View style={styles.passengersContainer}>
+                <View style={styles.passengers}>
+                    <MaterialCommunityIcons name={'seat-passenger'} size={18} color={'#0f4c75'}/>
+                    <Text style={styles.passengersText}>
+                        {post.passengers}
+                    </Text>
+            </View>
+            <View style={styles.passengersContainer}>
+                <View style={styles.passengers}>
+                    <MaterialCommunityIcons name={'car-shift-pattern'} size={18} color={'#0f4c75'}/>
+                    <Text style={styles.passengersText}>
+                        {post.gearType}
+                    </Text>
+                </View>
+            </View>
+            <View style={styles.passengersContainer}>
+                <View style={styles.passengers}>
+                <MaterialCommunityIcons name={'car-door'} size={18} color={'#0f4c75'}/>
+                    <Text style={styles.passengersText}>
+                        {post.doors}
+                    </Text>
+                </View>
+            </View> 
+            
+           
+            
             </View>
             
             {/* description and type */}
             <Text style={styles.title} numberOfLines={2}>
-            Mercedes G class
+            {post.title}
             </Text>
 
             {/* Old price and new price */}
@@ -28,10 +51,22 @@ const PostComponent = () => {
                 UGX
             </Text>
                 <Text style={styles.oldPrice} >
-                100,000
+                <NumberFormat
+                    value={post.oldPrice}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    renderText={value => <Text>{value}</Text>} 
+                />
+                
                 </Text>
                 <Text style={styles.newPrice} >
-                80,000/day
+                <NumberFormat
+                    value={post.newPrice}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    renderText={value => <Text>{value}</Text>} 
+                /> /day
+               
                 </Text>
                 
             </View>
@@ -40,7 +75,12 @@ const PostComponent = () => {
             <Text style={styles.totalPrice}>
             <Text style={styles.prefix} >
                 UGX
-            </Text> 500,000
+            </Text> <NumberFormat
+                    value={post.totalPrice}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    renderText={value => <Text>{value}</Text>} 
+                />
             </Text>
         </View>
     )
