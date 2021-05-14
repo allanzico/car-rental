@@ -19,6 +19,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import PostComponent from './src/components/Post/PostComponent';
+import CarFilterScreen from './src/screens/CarFilter/CarFilterScreen';
 import HomeScreen from './src/screens/Home/HomeScreen';
 import LocationsScreen from './src/screens/Locations/LocationsScreen';
 
@@ -40,8 +41,9 @@ const App: () => Node = () => {
    {/* <PostComponent post={post1}/> */}
    
    {/* <SearchResultsScreen/> */}
-   <LocationsScreen/>
+   {/* <LocationsScreen/> */}
         {/* <HomeScreen/> */}
+        <CarFilterScreen/>
     </SafeAreaView>
   );
 };
