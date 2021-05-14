@@ -20,6 +20,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import PostComponent from './src/components/Post/PostComponent';
 import HomeScreen from './src/screens/Home/HomeScreen';
+import LocationsScreen from './src/screens/Locations/LocationsScreen';
 
 import SearchResultsScreen from './src/screens/SearchResults/SearchResultsScreen';
 
@@ -38,9 +39,8 @@ const App: () => Node = () => {
  
    {/* <PostComponent post={post1}/> */}
    
-   <SearchResultsScreen/>
-  
-   
+   {/* <SearchResultsScreen/> */}
+   <LocationsScreen/>
         {/* <HomeScreen/> */}
     </SafeAreaView>
   );
