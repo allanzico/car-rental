@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'space-between',
+        height: '100%'
+    },
     filterContainer: {
         flexDirection:'row',
         justifyContent:'space-between',
@@ -20,7 +24,7 @@ const styles = StyleSheet.create({
     choiceButtons: {
         borderWidth: 2,
         borderStyle: 'solid',
-        borderColor: '#0f4c75',
+        borderColor: '#3282b8',
         width:30,
         height:30,
         borderRadius: 2,
@@ -33,14 +37,23 @@ const styles = StyleSheet.create({
         
     },
     choiceButtonsText: {
-        color: '#0f4c75',
+        color: '#3282b8',
         fontSize: 20,
         
     },
     valueText: {
         paddingHorizontal:15,
         fontSize: 16,
-        color: '#0f4c75'
+        color: '#3282b8'
+    },
+    searchButton: { 
+        padding: 10,
+        backgroundColor: '#3282b8',
+        marginVertical: 20,
+        marginHorizontal: 20,
+        borderRadius: 5,
+        alignItems: 'center'
+      
     }
 });
 

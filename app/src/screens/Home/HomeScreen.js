@@ -2,15 +2,17 @@ import React from 'react'
 import { View, Text, ImageBackground, Pressable } from 'react-native'
 import styles from './styles'
 import Feather from 'react-native-vector-icons/Feather'
+import {useNavigation} from '@react-navigation/native'
 
 const HomeScreen = () => {
+    const navigation = useNavigation();
     return (
         <View>
             {/* searchbar */}
             <Pressable
              style={styles.searchButton} 
-             onPress={()=>console.warn('Search clicked')}>
-                 <Feather name={"search"} size={24} color={'#0f4c75'}  />
+             onPress={()=>navigation.navigate('locations')}>
+                 <Feather name={"search"} size={24} color={'#3282b8'}  />
             <Text style={styles.searchButtonText}>
                 Search cars
             </Text>
