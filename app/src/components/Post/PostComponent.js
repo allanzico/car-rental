@@ -14,14 +14,14 @@ const PostComponent = (props) => {
             {/* passengers */}
             <View style={styles.passengersContainer}>
                 <View style={styles.passengers}>
-                    <MaterialCommunityIcons name={'seat-passenger'} size={18} color={'#0f4c75'}/>
+                    <MaterialCommunityIcons name={'seat-passenger'} size={18} color={'#3282b8'}/>
                     <Text style={styles.passengersText}>
                         {post.passengers}
                     </Text>
             </View>
             <View style={styles.passengersContainer}>
                 <View style={styles.passengers}>
-                    <MaterialCommunityIcons name={'car-shift-pattern'} size={18} color={'#0f4c75'}/>
+                    <MaterialCommunityIcons name={'car-shift-pattern'} size={18} color={'#3282b8'}/>
                     <Text style={styles.passengersText}>
                         {post.gearType}
                     </Text>
@@ -29,7 +29,7 @@ const PostComponent = (props) => {
             </View>
             <View style={styles.passengersContainer}>
                 <View style={styles.passengers}>
-                <MaterialCommunityIcons name={'car-door'} size={18} color={'#0f4c75'}/>
+                <MaterialCommunityIcons name={'car-door'} size={18} color={'#3282b8'}/>
                     <Text style={styles.passengersText}>
                         {post.doors}
                     </Text>
@@ -72,16 +72,23 @@ const PostComponent = (props) => {
             </View>
 
             {/* Total price */}
-            <Text style={styles.totalPrice}>
+            <View>
+            <Text >
             <Text style={styles.prefix} >
                 UGX
-            </Text> <NumberFormat
+            </Text> 
+            <Text style={styles.totalPrice}>
+            <NumberFormat
                     value={post.totalPrice}
                     displayType={'text'}
                     thousandSeparator={true}
                     renderText={value => <Text>{value}</Text>} 
                 />
             </Text>
+
+            </Text>
+            </View>
+            
         </View>
     )
 }

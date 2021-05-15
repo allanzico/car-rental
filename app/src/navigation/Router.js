@@ -16,6 +16,7 @@ const Router = () => {
             <Stack.Screen 
               name={"Home"} 
               component={HomeTabNavigator}
+              options={{headerShown: false}}
             />
                  
             <Stack.Screen 
@@ -29,7 +30,7 @@ const Router = () => {
               name={"carFilter"} 
               component={CarFilterScreen}
               options={{ 
-                  title: "customize your search"
+                  title: "How many are you?"
                }}
             />
             

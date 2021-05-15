@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Home/HomeScreen';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ExploreNavigator from './ExploreNavigator';
 
 const Tab = createBottomTabNavigator();
 const HomeTabNavigator = () => {
@@ -15,7 +16,7 @@ const HomeTabNavigator = () => {
              {/* Home tab */}
             <Tab.Screen 
             name={"Home"} 
-            component={HomeScreen}
+            component={ExploreNavigator}
             options={{ 
                 tabBarIcon:({color}) => (
                     <Ionicons name="home-outline" size={24} color={color}/>

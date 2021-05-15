@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
             color: 'grey'
     },
     title: {
-        color: '#0f4c75',
+        color: '#3282b8',
         fontSize: 18,
         lineHeight: 20,
         letterSpacing: 2,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginRight: 5,
         fontWeight: 'bold',
-        color: '#0f4c75',
+        color: '#3282b8',
     },
     prices: {
         flexDirection: 'row',
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
     totalPrice: {
         fontSize: 16,
         fontWeight: 'bold',
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        
     },
    
     

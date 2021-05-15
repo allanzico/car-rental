@@ -2,6 +2,7 @@ import React from 'react'
 import { View, FlatList } from 'react-native'
 import feed from '../../../assets/data/feed'
 import PostComponent from '../../components/Post/PostComponent'
+
 const SearchResultsScreen = (props) => {
  
     return (

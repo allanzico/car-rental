@@ -36,7 +36,7 @@ const CarFilterScreen = () => {
                     <Pressable onPress={()=>setBags(Math.max(0,bags-1))} style={styles.choiceButtons} >
                     <Text style={styles.choiceButtonsText}>-</Text>
                     </Pressable>
-                    <Text style={styles.valueText}>{passengers}</Text>
+                    <Text style={styles.valueText}>{bags}</Text>
                     <Pressable onPress={()=>setBags(bags+1)} style={styles.choiceButtons} >
                     <Text style={styles.choiceButtonsText}>+</Text>
                     </Pressable>
@@ -45,15 +45,12 @@ const CarFilterScreen = () => {
             </View>
             
         </View>
-        <Pressable onPress={()=>navigation.navigate('')} style={styles.searchButton }>
+        <Pressable onPress={()=>navigation.navigate('searchResults')} style={styles.searchButton }>
                 <Text style={{ color:"#ffffff", fontSize: 20 }}>
                 Search Cars
                 </Text>
         </Pressable>
-            
-    
-           
-        </View>
+      </View>
         
     )
 }
