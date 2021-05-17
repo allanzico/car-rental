@@ -5,6 +5,7 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ExploreNavigator from './ExploreNavigator';
+import SearchResultsMap from '../screens/SearchResultsMap/SearchResultsMap';
 
 const Tab = createBottomTabNavigator();
 const HomeTabNavigator = () => {
@@ -14,9 +15,18 @@ const HomeTabNavigator = () => {
          }}>
 
              {/* Home tab */}
-            <Tab.Screen 
+            {/* <Tab.Screen 
             name={"Home"} 
             component={ExploreNavigator}
+            options={{ 
+                tabBarIcon:({color}) => (
+                    <Ionicons name="home-outline" size={24} color={color}/>
+                )
+             }}
+            /> */}
+            <Tab.Screen 
+            name={"Home"} 
+            component={SearchResultsMap}
             options={{ 
                 tabBarIcon:({color}) => (
                     <Ionicons name="home-outline" size={24} color={color}/>

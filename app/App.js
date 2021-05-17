@@ -27,6 +27,7 @@ import 'react-native-gesture-handler';
 import SearchResultsScreen from './src/screens/SearchResults/SearchResultsScreen';
 import Router from './src/navigation/Router';
 
+
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 

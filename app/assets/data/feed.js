@@ -11,8 +11,8 @@ export default [
     newPrice: 150000,
     totalPrice: 750000,
     coordinate: {
-      latitude: 28.3915637,
-      longitude: -16.6291304,
+      latitude: 28.080798046161917,
+      longitude: -16.59407023667273,
     },
   },
   {
@@ -27,8 +27,8 @@ export default [
     newPrice: 80000,
     totalPrice: 320000,
     coordinate: {
-      latitude: 28.3915637,
-      longitude: -16.6291304,
+      latitude: 28.457661219708342,
+      longitude: -16.27489367819541,
     },
   },
   {
@@ -43,8 +43,8 @@ export default [
     newPrice: 80000,
     totalPrice: 320000,
     coordinate: {
-      latitude: 28.3915637,
-      longitude: -16.6291304,
+      latitude: 28.469745368305784,
+    longitude: -16.27847133823158,
     },
   },
     {
@@ -59,8 +59,8 @@ export default [
       newPrice: 80000,
       totalPrice: 240000,
       coordinate: {
-        latitude: 28.3915637,
-        longitude: -16.6291304,
+        latitude: 28.270146550058424,
+        longitude: -16.42906047587986,
       },
     },
    {
@@ -75,8 +75,8 @@ export default [
     newPrice: 50000,
     totalPrice: 200000,
     coordinate: {
-      latitude: 28.3915637,
-      longitude: -16.6291304,
+      latitude: 37.440093744608355,
+      longitude: -122.14084361959273,
     },
    },
    {

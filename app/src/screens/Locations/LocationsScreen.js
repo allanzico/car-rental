@@ -7,9 +7,13 @@ import {useNavigation} from '@react-navigation/native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import SuggestionsRow from './SuggestionsRow'
 
+
+
 const LocationsScreen = () => {
     const [inputText, setInputText] = useState('');
     const navigation = useNavigation();
+  
+    
     return (
         <View  style={styles.container}>
            {/* input component */}
