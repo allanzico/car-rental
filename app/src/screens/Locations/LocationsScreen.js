@@ -4,6 +4,8 @@ import styles from './styles'
 import searchResults from '../../../assets/data/search'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import {useNavigation} from '@react-navigation/native'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import SuggestionsRow from './SuggestionsRow'
 
 const LocationsScreen = () => {
     const [inputText, setInputText] = useState('');
@@ -11,23 +13,26 @@ const LocationsScreen = () => {
     return (
         <View  style={styles.container}>
            {/* input component */}
-            <TextInput 
-            style={styles.textInput}
-            placeholder="Search for car locations"
-            value={inputText}
-            onChangeText={setInputText} />
-           {/* locations list */}
-           <FlatList
-           data={searchResults}
-           renderItem={({item})=>
-           (<Pressable onPress={()=>navigation.navigate('carFilter')} style={styles.resultsContainer} >
-               <View style={styles.iconContainer}>
-                <EvilIcons name={"location"} size={24}/>
-               </View>
-               <Text style={styles.locationText}>{item.description}</Text>
-           </Pressable>)}
-           
-           />
+           <GooglePlacesAutocomplete
+                    placeholder='Search for car locations'
+                    onPress={(data, details = null) => {
+                        fetchDetails = true
+                        console.log(data, details);
+                        navigation.navigate('carFilter')
+                    }}
+                    styles={{ 
+                       textInput: styles.textInput,
+                     }}
+                     suppressDefaultStyles
+                     renderRow={(item)=><SuggestionsRow item={item} />}
+                    query={{
+                        key: 'AIzaSyAwvCrbz6K-qHmyct6qZkfM9R2LIPXe89A',
+                        language: 'en',
+                    }}
+                    
+                 
+            />
+            
         </View>
     )
 }
