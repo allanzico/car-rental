@@ -4,14 +4,16 @@ const styles = StyleSheet.create({
     container: {
          
            marginHorizontal: 20,
-           marginVertical: 10      
+           marginVertical: 10  ,
+              
     },
     image: {
         width: '100%',
        aspectRatio: 3/2,
        resizeMode: 'cover',
        borderRadius: 5,
-       marginBottom: 5
+       marginBottom: 5,
+       
     },
     passengersContainer: {
         marginVertical: 5,

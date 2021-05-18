@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#000000',
         fontSize: 20
+    },
+    carouselContainer: {
+      position: 'absolute',
+      bottom: 20
     }
    });
 

@@ -4,6 +4,7 @@ import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import PriceMarker from '../../components/PriceMarker/PriceMarker';
 import styles from "./styles";
 import cars from '../../../assets/data/feed'
+import CarouselComponent from '../../components/Carousel/CarouselComponent';
 
 
 const SearchResultsMap = () => {
@@ -33,6 +34,9 @@ const SearchResultsMap = () => {
                 
            
             </MapView>
+            <View style={styles.carouselContainer}> 
+                <CarouselComponent post={cars[0]}/>
+            </View>
         </View>
        
        
