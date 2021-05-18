@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
          
            marginHorizontal: 20,
            marginVertical: 10  ,
-           backgroundColor: 'white'
+           backgroundColor: 'white',
+           height: '100%'
               
     },
     image: {
@@ -65,6 +66,11 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         
     },
+    longDescription: {
+        marginVertical: 5,
+        fontSize: 14,
+        lineHeight: 24,
+      }
    
     
 });

@@ -12,7 +12,7 @@ import SuggestionsRow from './SuggestionsRow'
 const LocationsScreen = () => {
     const [inputText, setInputText] = useState('');
     const navigation = useNavigation();
-  
+
     
     return (
         <View  style={styles.container}>
@@ -21,7 +21,6 @@ const LocationsScreen = () => {
                     placeholder='Search for car locations'
                     onPress={(data, details = null) => {
                         fetchDetails = true
-                        console.log(data, details);
                         navigation.navigate('carFilter')
                     }}
                     styles={{ 

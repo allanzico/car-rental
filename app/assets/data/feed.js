@@ -10,6 +10,7 @@ export default [
     oldPrice: 200000,
     newPrice: 150000,
     totalPrice: 750000,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
     coordinate: {
       latitude: 28.080798046161917,
       longitude: -16.59407023667273,
@@ -26,6 +27,7 @@ export default [
     oldPrice: 100000,
     newPrice: 80000,
     totalPrice: 320000,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
     coordinate: {
       latitude: 28.457661219708342,
       longitude: -16.27489367819541,
@@ -42,6 +44,7 @@ export default [
     oldPrice: 100000,
     newPrice: 80000,
     totalPrice: 320000,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
     coordinate: {
       latitude: 28.469745368305784,
     longitude: -16.27847133823158,
@@ -58,6 +61,7 @@ export default [
       oldPrice: 100000,
       newPrice: 80000,
       totalPrice: 240000,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
       coordinate: {
         latitude: 28.270146550058424,
         longitude: -16.42906047587986,
@@ -74,6 +78,7 @@ export default [
     oldPrice: 100000,
     newPrice: 50000,
     totalPrice: 200000,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
     coordinate: {
       latitude: 37.440093744608355,
       longitude: -122.14084361959273,
@@ -90,6 +95,7 @@ export default [
     oldPrice: 100000,
     newPrice: 50000,
     totalPrice: 200000,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex',
     coordinate: {
       latitude: 28.3915637,
       longitude: -16.6291304,

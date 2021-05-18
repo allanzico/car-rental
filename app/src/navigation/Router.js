@@ -6,6 +6,8 @@ import HomeScreen from '../screens/Home/HomeScreen'
 import LocationsScreen from '../screens/Locations/LocationsScreen'
 import CarFilterScreen from '../screens/CarFilter/CarFilterScreen'
 import HomeTabNavigator from './HomeTabNavigator'
+import DetailsScreen from '../screens/Details/DetailsScreen'
+import SearchResultsScreen from '../screens/SearchResults/SearchResultsScreen'
 
 const Stack = createStackNavigator();
 const Router = () => {
@@ -31,6 +33,13 @@ const Router = () => {
               component={CarFilterScreen}
               options={{ 
                   title: "How many are you?"
+               }}
+            />
+            <Stack.Screen 
+              name={"detailsPage"} 
+              component={DetailsScreen}
+              options={{ 
+                  title: "Car Details"
                }}
             />
             

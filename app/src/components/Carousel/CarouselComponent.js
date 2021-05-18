@@ -1,14 +1,21 @@
 import React from 'react'
-import { View, Text, Image, useWindowDimensions} from 'react-native'
+import { View, Text, Image, useWindowDimensions, Pressable} from 'react-native'
 import styles from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import NumberFormat from 'react-number-format';
+import {useNavigation} from '@react-navigation/native'
 
 const CarouselComponent = (props) => {
     const post = props.post;
     const width = useWindowDimensions().width;
+
+  const navigation = useNavigation();
+  const loadDetailsPage = () => {
+    navigation.navigate('detailsPage', {postId:post.id})
+  }
+    
     return (
-    <View style={[styles.container, { width: width - 60}]}>
+    <Pressable onPress={loadDetailsPage} style={[styles.container, { width: width - 60}]}>
       <View style={styles.innerContainer}>
         {/* Image  */}
         <Image
@@ -60,54 +67,8 @@ const CarouselComponent = (props) => {
           </Text>
         </View>
       </View>
-    </View>
-    // <View style={[styles.container, {width: width-60}]}>
-    //     <View style={styles.innerContainer}>
-    //         {/* image */}
-    //     <Image source={{ uri:post.image }} style={styles.image}/>
-
-    //         {/* passengers */}
-    //         <View style={styles.passengersContainer}>
-    //             <View style={styles.passengers}>
-    //                 <MaterialCommunityIcons name={'seat-passenger'} size={18} color={'#3282b8'}/>
-    //                 <Text style={styles.passengersText}>
-    //                     {post.passengers}
-    //                 </Text>
-    //             </View>
-    //         <View style={styles.passengersContainer}>
-    //             <View style={styles.passengers}>
-    //                 <MaterialCommunityIcons name={'car-shift-pattern'} size={18} color={'#3282b8'}/>
-    //                 <Text style={styles.passengersText}>
-    //                     {post.gearType}
-    //                 </Text>
-    //             </View>
-    //         </View>
-    //         <View style={styles.passengersContainer}>
-    //             <View style={styles.passengers}>
-    //             <MaterialCommunityIcons name={'car-door'} size={18} color={'#3282b8'}/>
-    //                 <Text style={styles.passengersText}>
-    //                     {post.doors}
-    //                 </Text>
-    //             </View>
-    //         </View> 
-    //         </View>
-            
-    //         {/* description and type */}
-    //         <Text style={styles.title} numberOfLines={2}>
-    //         {post.title}
-    //         </Text>
-
-    //         {/* Old price and new price */}
-    //         <View style={styles.prices}>
+    </Pressable>
    
-    //             <Text style={styles.newPrice} >
-    
-               
-    //             </Text>
-                
-    //         </View>
-    //         </View>
-    //     </View>
     )
 }
 

@@ -26,7 +26,7 @@ const HomeTabNavigator = () => {
             /> */}
             <Tab.Screen 
             name={"Home"} 
-            component={SearchResultsMap}
+            component={ExploreNavigator}
             options={{ 
                 tabBarIcon:({color}) => (
                     <Ionicons name="home-outline" size={24} color={color}/>

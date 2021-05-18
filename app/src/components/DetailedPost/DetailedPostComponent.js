@@ -1,19 +1,18 @@
 import React from 'react'
-import { View, Text, Image, Pressable} from 'react-native'
+import { View, Text, Image, ScrollView} from 'react-native'
 import styles from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import NumberFormat from 'react-number-format';
-import {useNavigation} from '@react-navigation/native'
 
 
-const PostComponent = (props) => {
+
+const DetailedPostComponent = (props) => {
   const post = props.post;
-  const navigation = useNavigation();
-  const loadDetailsPage = () => {
-    navigation.navigate('detailsPage', {postId:post.id})
-  }
     return (
-        <Pressable onPress={loadDetailsPage} style={styles.container}>
+        <ScrollView>
+
+        
+        <View style={styles.container}>
             {/* image */}
         <Image source={{ uri:post.image }} style={styles.image}/>
 
@@ -46,7 +45,7 @@ const PostComponent = (props) => {
             
             </View>
             
-            {/* description and type */}
+            {/* Title */}
             <Text style={styles.title} numberOfLines={2}>
             {post.title}
             </Text>
@@ -93,10 +92,15 @@ const PostComponent = (props) => {
             </Text>
 
             </Text>
+             {/* Description */}
+             <Text style={styles.longDescription}>
+                 {post.description}
+             </Text>
             </View>
             
-        </Pressable>
+        </View>
+        </ScrollView>
     )
 }
 
-export default PostComponent
+export default DetailedPostComponent
