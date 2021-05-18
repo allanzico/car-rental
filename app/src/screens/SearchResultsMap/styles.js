@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     carouselContainer: {
       position: 'absolute',
-      bottom: 20
+      bottom: 20,
     }
    });
 
