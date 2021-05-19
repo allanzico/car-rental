@@ -6,8 +6,45 @@ const styles = StyleSheet.create({
            marginHorizontal: 20,
            marginVertical: 10  ,
            backgroundColor: 'white',
-           height: '100%'
+           height: '100%',
               
+    },
+    bookButton: {
+        backgroundColor: '#3282b8',
+        padding: 10,
+        borderRadius: 5,
+        width: '40%',
+        height: 50,
+        margin:  10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    priceContainer: {
+        width: '40%',
+        height: 40,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    footer: {
+        flexDirection: 'row',
+        height: 120,
+        backgroundColor:'white',
+        position: 'absolute',
+        justifyContent: 'space-between',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 7,
+        bottom:0,
+        left:0,
+        right:0
     },
     image: {
         width: '100%',
@@ -48,7 +85,6 @@ const styles = StyleSheet.create({
     },
     prices: {
         flexDirection: 'row',
-        alignItems: "center"
     },
     oldPrice: {
         fontSize: 16,

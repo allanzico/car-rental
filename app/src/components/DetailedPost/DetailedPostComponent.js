@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, ScrollView} from 'react-native'
+import { View, Text, Image, ScrollView, Pressable, StatusBar} from 'react-native'
 import styles from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import NumberFormat from 'react-number-format';
@@ -8,11 +8,12 @@ import NumberFormat from 'react-number-format';
 
 const DetailedPostComponent = (props) => {
   const post = props.post;
-    return (
-        <ScrollView>
 
-        
-        <View style={styles.container}>
+    return (
+    <View >
+        <StatusBar hidden />
+        <ScrollView  style={styles.container}>
+        <View >
             {/* image */}
         <Image source={{ uri:post.image }} style={styles.image}/>
 
@@ -99,7 +100,33 @@ const DetailedPostComponent = (props) => {
             </View>
             
         </View>
+        
+        
         </ScrollView>
+        <View style={styles.footer}> 
+            <View style={styles.priceContainer}>
+                    <Text style={{ textDecorationLine: 'underline', fontSize:20 }} >
+                    <NumberFormat
+                        value={post.newPrice}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        renderText={value => <Text>{value}</Text>} 
+                    /> /day
+                
+                    </Text>
+            </View>
+               
+          
+            <Pressable
+             style={styles.bookButton} 
+             onPress={()=>console.warn('Explore clicked')}>
+                <Text style={{ color:'#ffffff', fontSize:20 }}>
+                    Book
+                </Text>
+            </Pressable>
+        </View>
+        </View>
+
     )
 }
 

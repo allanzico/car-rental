@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
          
            marginHorizontal: 20,
            marginVertical: 10  ,
-           backgroundColor: 'white'
+          
               
     },
     image: {
