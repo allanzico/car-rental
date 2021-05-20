@@ -11,7 +11,7 @@ import SearchResultsScreen from '../screens/SearchResults/SearchResultsScreen'
 
 const Stack = createStackNavigator();
 const Router = () => {
-   
+
     return (
       <NavigationContainer>
           <Stack.Navigator>
@@ -46,6 +46,7 @@ const Router = () => {
           </Stack.Navigator>
       </NavigationContainer>
     )
+
 }
 
 export default Router

@@ -26,7 +26,8 @@ import 'react-native-gesture-handler';
 
 import SearchResultsScreen from './src/screens/SearchResults/SearchResultsScreen';
 import Router from './src/navigation/Router';
-import { withAuthenticator } from 'aws-amplify-react-native';
+import { withAuthenticator, Authenticator, SignIn, SignUp, ConfirmSignUp, ConfirmSignIn, ForgotPassword, Greetings} from 'aws-amplify-react-native';
+import SignUpComponent from './src/components/Authentication/SignUp/SignUpComponent';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -39,8 +40,24 @@ const App: () => Node = () => {
  
   return (
     <>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Router/>
+   
+    
+      <Authenticator hideDefault={true} authState='signIn' onStateChange={(authState)=>console.log('Auth.....', authState)}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        
+        <SignIn/>
+        {/* <SignUp/> */}
+        <SignUpComponent/>
+        <ConfirmSignIn/>
+        <ConfirmSignUp/>
+        <ForgotPassword/>
+        <Greetings/>
+        <Router/>
+      </Authenticator>
+      
+   
+      
+      
 
     </>
    
@@ -48,4 +65,4 @@ const App: () => Node = () => {
 };
 
 
-export default withAuthenticator(App);
+export default App;
