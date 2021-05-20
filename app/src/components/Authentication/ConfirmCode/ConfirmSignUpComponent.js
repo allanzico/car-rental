@@ -1,32 +1,32 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Pressable, Alert } from 'react-native'
 import styles from '../styles'
-import {validateEmail, validatePassword} from '../../../Validation/Validation'
+import {validateCode, validateEmail, validatePassword} from '../../../Validation/Validation'
 import {Auth} from 'aws-amplify'
 
 
 
-const SignUpComponent = (props) => {
+const ConfirmSignUpComponent = (props) => {
     const [state, setstate] = useState({ 
         email: '', 
-        password: ''
+        confirmationCode: ''
     })
     const [error, setError] = useState({
         emailError: '',
-        passwordError: ''
+        confirmationCodeError: ''
     })
 
     const onSubmit = async () => {
         const emailError = validateEmail(state.email);
-        const passwordError = validatePassword(state.password);
+        const confirmationCodeError = validateCode(state.confirmationCode);
         
-        if (emailError || passwordError) {
-            setError({emailError:emailError, passwordError:passwordError})
+        if (emailError || confirmationCodeError) {
+            setError({emailError:emailError, confirmationCodeError:confirmationCodeError})
         }else{
             try {
-                const user = await Auth.signUp({
+                const user = await Auth.confirmSignUp({
                     username:state.email, 
-                    password:state.password
+                    code:state.confirmationCode
                 })
             } catch (error) {
                 Alert.alert(error.message)
@@ -34,10 +34,10 @@ const SignUpComponent = (props) => {
         }
     
     }
-   if (props.authState === 'signUp') {
+   if (props.authState === 'confirmSignUp') {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>SignUp</Text>
+            <Text style={styles.title}>Confirm Signup</Text>
             
             {/* email input */}
             <Text style={styles.label}>Email</Text>
@@ -50,19 +50,18 @@ const SignUpComponent = (props) => {
             <Text style={styles.error}>{error.emailError}</Text>
 
             {/* password input */}
-            <Text style={styles.label}>Password</Text>
+            <Text style={styles.label}>Code</Text>
             <TextInput
             style={styles.input}
-            onChangeText={(text)=>setstate({...state, password:text})}
-            value={state.password}
-            secureTextEntry={true}
-            placeholder="Enter password"
+            onChangeText={(text)=>setstate({...state, confirmationCode:text})}
+            value={state.confirmationCode}
+            placeholder="Enter confirmation code"
             />
-            <Text style={styles.error}>{error.passwordError}</Text>
+            <Text style={styles.error}>{error.confirmationCodeError}</Text>
 
             {/* Submit button */}
             <Pressable style={styles.button} onPress={()=>onSubmit()}>
-                <Text style={styles.buttonText}>sign up</Text>
+                <Text style={styles.buttonText}>Confirm</Text>
             </Pressable>
 
             {/* Nav links */}
@@ -70,8 +69,8 @@ const SignUpComponent = (props) => {
                 <Pressable onPress={()=>props.onStateChange('signIn', {})}>
                     <Text style={styles.linksText}>back to  Sign In</Text>
                 </Pressable>
-                <Pressable onPress={()=>props.onStateChange('confirmSignUp', {})}>
-                    <Text style={styles.linksText}>Confirm Sign Up</Text>
+                <Pressable onPress={()=>props.onStateChange('signUp', {})}>
+                    <Text style={styles.linksText}>back to Sign Up</Text>
                 </Pressable>
             </View>
            
@@ -81,4 +80,4 @@ const SignUpComponent = (props) => {
    
 }
 
-export default SignUpComponent
+export default ConfirmSignUpComponent
