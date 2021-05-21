@@ -29,6 +29,7 @@ import Router from './src/navigation/Router';
 import { withAuthenticator, Authenticator, SignIn, SignUp, ConfirmSignUp, ConfirmSignIn, ForgotPassword, Greetings} from 'aws-amplify-react-native';
 import SignUpComponent from './src/components/Authentication/SignUp/SignUpComponent';
 import ConfirmSignUpComponent from './src/components/Authentication/ConfirmCode/ConfirmSignUpComponent';
+import SignInComponent from './src/components/Authentication/SignIn/SignInComponent';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -46,11 +47,11 @@ const App: () => Node = () => {
       <Authenticator
        usernameAttributes="email"
        hideDefault={true} 
-       authState='signIn' 
+       authState='signIn'
        onStateChange={(authState)=>console.log('Auth.....', authState)}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         
-        <SignIn/>
+        <SignInComponent/>
         <SignUpComponent/>
         <ConfirmSignUpComponent/>
         <ConfirmSignIn/>

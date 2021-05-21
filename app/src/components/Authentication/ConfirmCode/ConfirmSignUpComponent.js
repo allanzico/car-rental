@@ -17,6 +17,7 @@ const ConfirmSignUpComponent = (props) => {
     })
 
     const onSubmit = async () => {
+        const {email:username, confirmationCode:code} = state;
         const emailError = validateEmail(state.email);
         const confirmationCodeError = validateCode(state.confirmationCode);
         
@@ -24,10 +25,9 @@ const ConfirmSignUpComponent = (props) => {
             setError({emailError:emailError, confirmationCodeError:confirmationCodeError})
         }else{
             try {
-                const user = await Auth.confirmSignUp({
-                    username:state.email, 
-                    code:state.confirmationCode
-                })
+                const user = await Auth.confirmSignUp(username, code);
+                props.onStateChange('signIn');
+                setstate({confirmationCode:''});
             } catch (error) {
                 Alert.alert(error.message)
             }

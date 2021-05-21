@@ -6,40 +6,27 @@ import {Auth} from 'aws-amplify'
 
 
 
-const SignUpComponent = (props) => {
+const SignInComponent = (props) => {
     const [state, setstate] = useState({ 
         email: '', 
         password: ''
     })
-    const [error, setError] = useState({
-        emailError: '',
-        passwordError: ''
-    })
-
     const onSubmit = async () => {
-        const emailError = validateEmail(state.email);
-        const passwordError = validatePassword(state.password);
-        
-        if (emailError || passwordError) {
-            setError({emailError:emailError, passwordError:passwordError})
-        }else{
+        const {email:username, password:password} = state;
             try {
-                const user = await Auth.signUp({
-                    username:state.email, 
-                    password:state.password
-                });
+                const user = await Auth.signIn(username, password);
                 setstate({email: '', password: ''});
-                props.onStateChange('confirmSignUp');
+            
             } catch (error) {
                 Alert.alert(error.message)
             }
-        }
+        
     
     }
-   if (props.authState === 'signUp') {
+   if (props.authState === 'signIn') {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>SignUp</Text>
+            <Text style={styles.title}>Sign In</Text>
             
             {/* email input */}
             <Text style={styles.label}>Email</Text>
@@ -49,7 +36,7 @@ const SignUpComponent = (props) => {
             value={state.email}
             placeholder="Enter email"
             />
-            <Text style={styles.error}>{error.emailError}</Text>
+         
 
             {/* password input */}
             <Text style={styles.label}>Password</Text>
@@ -60,20 +47,20 @@ const SignUpComponent = (props) => {
             secureTextEntry={true}
             placeholder="Enter password"
             />
-            <Text style={styles.error}>{error.passwordError}</Text>
+    
 
             {/* Submit button */}
             <Pressable style={styles.button} onPress={()=>onSubmit()}>
-                <Text style={styles.buttonText}>sign up</Text>
+                <Text style={styles.buttonText}>Login</Text>
             </Pressable>
 
             {/* Nav links */}
             <View style={styles.links}>
-                <Pressable onPress={()=>props.onStateChange('signIn', {})}>
-                    <Text style={styles.linksText}>back to  Sign In</Text>
+                <Pressable onPress={()=>props.onStateChange('signUp', {})}>
+                    <Text style={styles.linksText}>Don't have an account? Signup</Text>
                 </Pressable>
-                <Pressable onPress={()=>props.onStateChange('confirmSignUp', {})}>
-                    <Text style={styles.linksText}>Confirm Sign Up</Text>
+                <Pressable onPress={()=>props.onStateChange('forgotPassword', {})}>
+                    <Text style={styles.linksText}>Forgot Password?</Text>
                 </Pressable>
             </View>
            
@@ -83,4 +70,4 @@ const SignUpComponent = (props) => {
    
 }
 
-export default SignUpComponent
+export default SignInComponent
