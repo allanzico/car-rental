@@ -43,27 +43,12 @@ const App: () => Node = () => {
   return (
     <>
    
-    
-      <Authenticator
-       usernameAttributes="email"
-       hideDefault={true} 
-       authState='signIn'
-       onStateChange={(authState)=>console.log('Auth.....', authState)}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        
-        <SignInComponent/>
-        <SignUpComponent/>
-        <ConfirmSignUpComponent/>
-        <ConfirmSignIn/>
-        
-        <ForgotPassword/>
-        <Greetings/>
         <Router/>
-      </Authenticator>
+     
     </>
    
   );
 };
 
 
-export default App;
+export default withAuthenticator(App);

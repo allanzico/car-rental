@@ -6,6 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ExploreNavigator from './ExploreNavigator';
 import SearchResultsMap from '../screens/SearchResultsMap/SearchResultsMap';
+import ProfileScreen from '../screens/Profile/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const HomeTabNavigator = () => {
@@ -70,7 +71,7 @@ const HomeTabNavigator = () => {
             {/* Profile tab */}
             <Tab.Screen 
             name={"Profile"} 
-            component={HomeScreen}
+            component={ProfileScreen}
             options={{ 
                 tabBarIcon:({color}) => (
                     <Ionicons name="person-circle-outline" size={24} color={color}/>
