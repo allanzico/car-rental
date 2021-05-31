@@ -60,11 +60,6 @@ const App: () => Node = () => {
         <Greetings/>
         <Router/>
       </Authenticator>
-      
-   
-      
-      
-
     </>
    
   );

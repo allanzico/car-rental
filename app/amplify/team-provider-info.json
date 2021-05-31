@@ -18,7 +18,7 @@
           "EMAILSUBJECT": "",
           "EMAILMESSAGE": "",
           "deploymentBucketName": "amplify-carrental-dev-132649-deployment",
-          "s3Key": "amplify-builds/carrental4ca48fb2CustomMessage-6a5049764b52662f5872-build.zip"
+          "s3Key": "amplify-builds/carrental4ca48fb2CustomMessage-363579467a5236584e75-build.zip"
         }
       },
       "auth": {

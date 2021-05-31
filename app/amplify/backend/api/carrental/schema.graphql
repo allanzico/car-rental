@@ -1,0 +1,14 @@
+type Post @model {
+ id: ID!
+ image:String!
+ gearType:String!
+ title:String!
+ bags: Int!
+ passengers: Int!
+ doors:Int!
+ oldPrice: Float
+ newPrice: Float!
+ description: String!
+ latitude: Float!
+ longitude: Float!
+}
