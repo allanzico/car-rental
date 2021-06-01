@@ -2,6 +2,8 @@ import React from 'react'
 import { View, FlatList } from 'react-native'
 import feed from '../../../assets/data/feed'
 import PostComponent from '../../components/Post/PostComponent'
+import { API, graphqlOperation} from 'aws-amplify'
+
 
 const SearchResultsScreen = (props) => {
  
