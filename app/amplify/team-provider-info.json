@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-carrental-dev-132649-unauthRole",
       "StackName": "amplify-carrental-dev-132649",
       "StackId": "arn:aws:cloudformation:us-east-1:322864532482:stack/amplify-carrental-dev-132649/28c9e510-b895-11eb-8267-0e1c7f65113d",
-      "AmplifyAppId": "dwy8p12yyrmgf"
+      "AmplifyAppId": "dwy8p12yyrmgf",
+      "AuthTriggerTemplateURL": ""
     },
     "categories": {
       "function": {

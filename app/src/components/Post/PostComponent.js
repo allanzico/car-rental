@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native'
 
 const PostComponent = (props) => {
   const post = props.post;
+  const numberOfDays = 7;
   const navigation = useNavigation();
   const loadDetailsPage = () => {
     navigation.navigate('detailsPage', {postId:post.id})
@@ -85,7 +86,7 @@ const PostComponent = (props) => {
             </Text> 
             <Text style={styles.totalPrice}>
             <NumberFormat
-                    value={post.totalPrice}
+                    value={post.newPrice * numberOfDays}
                     displayType={'text'}
                     thousandSeparator={true}
                     renderText={value => <Text>{value}</Text>} 

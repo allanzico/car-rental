@@ -3,12 +3,14 @@ import { View, Text, StyleSheet, FlatList, useWindowDimensions } from 'react-nat
 import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import PriceMarker from '../../components/PriceMarker/PriceMarker';
 import styles from "./styles";
-import cars from '../../../assets/data/feed'
-import CarouselComponent from '../../components/Carousel/CarouselComponent';
 
+import CarouselComponent from '../../components/Carousel/CarouselComponent';
+import { API, graphqlOperation} from 'aws-amplify'
+import {listPosts} from '../../../graphql/queries'
 
 const SearchResultsMap = () => {
     const [selectedCar, setSelectedCar] = useState(null);
+    const [posts, setPosts] = useState([]);
     const flatlist = useRef();
     const panMap = useRef();
     const viewConfig = useRef({ itemVisiblePercentThreshold:70 });
@@ -22,17 +24,33 @@ const SearchResultsMap = () => {
     
     const width = useWindowDimensions().width;
 
+    //Fetch posts
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const postsResult = await API.graphql(
+                    graphqlOperation(listPosts)
+                )
+                setPosts(postsResult.data.listPosts.items);
+            } catch (error) {
+                console.log(error)
+            }     
+        }
+    
+        fetchPosts();
+     }, []);
+
     //Scroll to element
     useEffect(() => {
         if (!selectedCar || !flatlist) {  
             return;
         }
-        const index = cars.findIndex(car=>car.id === selectedCar)
+        const index = posts.findIndex(car=>car.id === selectedCar)
         flatlist.current.scrollToIndex({index})
-        const scrolledCar = cars[index];
+        const scrolledCar = posts[index];
         const region = {
-            latitude: scrolledCar.coordinate.latitude,
-            longitude: scrolledCar.coordinate.longitude,
+            latitude: scrolledCar.latitude,
+            longitude: scrolledCar.longitude,
             latitudeDelta: 0.8,
             longitudeDelta:0.8
         }
@@ -53,10 +71,10 @@ const SearchResultsMap = () => {
                 
                 }}
             >
-                {cars.map(car=>
+                {posts.map(car=>
                 (
                     <PriceMarker 
-                        coordinate={car.coordinate} 
+                        coordinate={{latitude:car.latitude, longitude:car.longitude}} 
                         price={car.newPrice} 
                         isSelected={car.id === selectedCar}
                         onPress={()=>setSelectedCar(car.id)}
@@ -70,7 +88,7 @@ const SearchResultsMap = () => {
                ref={flatlist}
                viewabilityConfig={viewConfig.current}
                onViewableItemsChanged={onViewChanged.current}
-               data={cars}
+               data={posts}
                renderItem={({item}) =>  <CarouselComponent post={item}/>}
                horizontal={true}
                showsHorizontalScrollIndicator={false}
@@ -85,7 +103,5 @@ const SearchResultsMap = () => {
     )
     
 }
-
-
 
 export default SearchResultsMap

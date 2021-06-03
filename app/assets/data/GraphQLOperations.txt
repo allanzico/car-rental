@@ -72,7 +72,7 @@ mutation createCar4 {
   },
 }
 
-mutation createAccomodation5 {
+mutation createCar5 {
   createPost(input: {
     image: "https://cdn.pixabay.com/photo/2019/05/04/23/59/maserati-levante-4179432_960_720.jpg",
     gearType: "Manual",

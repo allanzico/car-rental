@@ -7,7 +7,7 @@ type Post @model {
   passengers: Int!
   doors: Int!
   oldPrice: Float!
-  newPrice: Float!
+  newPrice: Float
   description: String!
   latitude: Float!
   longitude: Float!
