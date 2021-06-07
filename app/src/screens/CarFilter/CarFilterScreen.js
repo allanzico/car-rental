@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { View, Text, Pressable } from 'react-native'
 import styles from './styles'
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation, useRoute} from '@react-navigation/native'
 
 const CarFilterScreen = () => {
     const [passengers, setPassengers] = useState(0);
     const [bags, setBags] = useState(0);
     const navigation = useNavigation();
+    const route = useRoute();
+
     return (
         <View style={styles.container}>
             <View>
@@ -45,7 +47,19 @@ const CarFilterScreen = () => {
             </View>
             
         </View>
-        <Pressable onPress={()=>navigation.navigate('searchResults')} style={styles.searchButton }>
+        <Pressable 
+            onPress={()=>navigation.navigate('Home', {
+                screen: 'Home',
+                params: {
+                    screen: 'searchResults',
+                    params: {
+                        passengers: passengers,
+                        bags:bags,
+                        viewport: route.params.viewport
+                    }
+                }
+            })} 
+            style={styles.searchButton }>
                 <Text style={{ color:"#ffffff", fontSize: 20 }}>
                 Search Cars
                 </Text>

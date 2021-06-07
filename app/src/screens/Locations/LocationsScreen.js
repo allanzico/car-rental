@@ -7,12 +7,14 @@ import {useNavigation} from '@react-navigation/native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import SuggestionsRow from './SuggestionsRow'
 
+import Geolocation from '@react-native-community/geolocation';
+
+
 
 
 const LocationsScreen = () => {
     const [inputText, setInputText] = useState('');
     const navigation = useNavigation();
-
     
     return (
         <View  style={styles.container}>
@@ -20,20 +22,20 @@ const LocationsScreen = () => {
            <GooglePlacesAutocomplete
                     placeholder='Search for car locations'
                     onPress={(data, details = null) => {
-                        fetchDetails = true
-                        navigation.navigate('carFilter')
-                    }}
-                    styles={{ 
-                       textInput: styles.textInput,
-                     }}
-                     suppressDefaultStyles
-                     renderRow={(item)=><SuggestionsRow item={item} />}
+                        navigation.navigate('carFilter',{viewport: details.geometry.viewport})
+                    }}  
+                    currentLocation={true}
+                    currentLocationLabel='Current location'
+                    fetchDetails
+                    suppressDefaultStyles
+                    renderRow={(item)=><SuggestionsRow item={item} />}
                     query={{
                         key: 'AIzaSyB61-FJ_TL4CE_PRerC5JuMtoWBDhMRIJs',
                         language: 'en',
                     }}
-                    
-                 
+                    styles={{ 
+                        textInput: styles.textInput,
+                      }}
             />
             
         </View>

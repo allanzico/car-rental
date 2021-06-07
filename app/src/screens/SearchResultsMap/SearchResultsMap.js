@@ -5,12 +5,10 @@ import PriceMarker from '../../components/PriceMarker/PriceMarker';
 import styles from "./styles";
 
 import CarouselComponent from '../../components/Carousel/CarouselComponent';
-import { API, graphqlOperation} from 'aws-amplify'
-import {listPosts} from '../../../graphql/queries'
 
-const SearchResultsMap = () => {
+const SearchResultsMap = (props) => {
     const [selectedCar, setSelectedCar] = useState(null);
-    const [posts, setPosts] = useState([]);
+    const {posts} = props;
     const flatlist = useRef();
     const panMap = useRef();
     const viewConfig = useRef({ itemVisiblePercentThreshold:70 });
@@ -23,23 +21,7 @@ const SearchResultsMap = () => {
     });
     
     const width = useWindowDimensions().width;
-
-    //Fetch posts
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const postsResult = await API.graphql(
-                    graphqlOperation(listPosts)
-                )
-                setPosts(postsResult.data.listPosts.items);
-            } catch (error) {
-                console.log(error)
-            }     
-        }
-    
-        fetchPosts();
-     }, []);
-
+ 
     //Scroll to element
     useEffect(() => {
         if (!selectedCar || !flatlist) {  

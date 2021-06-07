@@ -42,7 +42,14 @@ const PostComponent = (props) => {
                     </Text>
                 </View>
             </View> 
-            
+            <View style={styles.passengersContainer}>
+                <View style={styles.passengers}>
+                <MaterialCommunityIcons name={'bag-carry-on'} size={18} color={'#3282b8'}/>
+                    <Text style={styles.passengersText}>
+                        {post.bags}
+                    </Text>
+                </View>
+            </View>
            
             
             </View>

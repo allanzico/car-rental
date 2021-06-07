@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="702cd148-c806-4a8c-be22-7e9d77d998b2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/java/com/app/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/java/com/app/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/app/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/Post/PostComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/Post/PostComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/navigation/SearchResultsTabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/navigation/SearchResultsTabNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/screens/CarFilter/CarFilterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/screens/CarFilter/CarFilterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/screens/Locations/LocationsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/screens/Locations/LocationsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/screens/SearchResults/SearchResultsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/screens/SearchResults/SearchResultsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/screens/SearchResultsMap/SearchResultsMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/screens/SearchResultsMap/SearchResultsMap.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1tccYUqJMHV0A14Jn5a2RXdm3vE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="702cd148-c806-4a8c-be22-7e9d77d998b2" name="Default Changelist" comment="" />
+      <created>1623071867184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623071867184</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="228" y="116" width="1200" height="800" key="AVDManager" timestamp="1623071922068">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="228" y="116" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1623071922068" />
+  </component>
+</project>
