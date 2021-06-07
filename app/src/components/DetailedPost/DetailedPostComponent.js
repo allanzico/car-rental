@@ -4,10 +4,9 @@ import styles from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import NumberFormat from 'react-number-format';
 
-
-
 const DetailedPostComponent = (props) => {
-  const post = props.post;
+    const {post} = props;
+   
 
     return (
     <View >

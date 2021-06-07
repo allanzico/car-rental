@@ -5,13 +5,38 @@ import styles from './styles'
 import cars from '../../../assets/data/feed'
 import DetailedPostComponent from '../../components/DetailedPost/DetailedPostComponent'
 import {useRoute} from '@react-navigation/native'
+import { API, graphqlOperation} from 'aws-amplify'
+import {listPosts} from '../../../graphql/queries'
 
 
-const DetailsScreen = () => {
+const DetailsScreen = (props) => {
  const route = useRoute();
- const post = cars.find(car=>car.id === route.params.postId);
- 
- console.log(route.params)
+ const {postId} = route.params;
+ const [post, setPost] = useState([]);
+
+
+ //Fetch by ID
+ useEffect(() => {
+  const fetchPosts = async () => {
+      try {
+          const postsResult = await API.graphql(
+              graphqlOperation(listPosts, {
+                filter: {
+                  id: {
+                    eq: postId
+                  }
+                }
+              })
+              
+          )
+          setPost(postsResult.data.listPosts.items[0]);
+      } catch (error) {
+          console.log(error)
+      }     
+  }
+
+  fetchPosts();
+}, []);
 
     return (
         <View style={styles.container}>

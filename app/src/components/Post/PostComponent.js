@@ -13,6 +13,7 @@ const PostComponent = (props) => {
   const loadDetailsPage = () => {
     navigation.navigate('detailsPage', {postId:post.id})
   }
+
     return (
         <Pressable onPress={loadDetailsPage} style={styles.container}>
             {/* image */}
