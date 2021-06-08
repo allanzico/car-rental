@@ -32,8 +32,11 @@ const Router = () => {
               name={"carFilter"} 
               component={CarFilterScreen}
               options={{ 
-                  title: "How many are you?"
+                  title: "Customize your search",
+                  headerTransparent: true
                }}
+               
+             
             />
             <Stack.Screen 
               name={"detailsPage"} 

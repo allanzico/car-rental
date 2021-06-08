@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, TextInput } from 'react-native'
 import styles from './styles'
 import {useNavigation, useRoute} from '@react-navigation/native'
 
@@ -11,9 +11,21 @@ const CarFilterScreen = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.subContainer}>
+               <View>
+               <Pressable
+                    style={styles.descriptionButton} 
+                    onPress={()=>navigation.navigate('locations')}>
+                    <Text style={styles.descriptionButtonText}>
+                    {route.params.data.description}
+                    </Text>
+                    </Pressable>
+               </View>
             <View>
                  {/* Passengers button row */}
-            <View style={styles.filterContainer}>
+
+            <View style={styles.filterMainContainer}>
+              <View style={styles.filterContainer}>
                 <View >
                     <Text style={styles.filterText}>Passengers</Text>
                 </View>
@@ -45,9 +57,20 @@ const CarFilterScreen = () => {
                     
                 </View>
             </View>
+
+           </View>
+           
             
         </View>
-        <Pressable 
+ </View>
+            
+  
+     
+
+
+        <View style={styles.footer}> 
+            <View style={styles.priceContainer}>
+            <Pressable 
             onPress={()=>navigation.navigate('Home', {
                 screen: 'Home',
                 params: {
@@ -59,12 +82,40 @@ const CarFilterScreen = () => {
                     }
                 }
             })} 
-            style={styles.searchButton }>
-                <Text style={{ color:"#ffffff", fontSize: 20 }}>
-                Search Cars
+         >
+                <Text style={{ textDecorationLine: 'underline', fontSize:20 }}>
+                skip
                 </Text>
         </Pressable>
-      </View>
+               
+                    
+            </View>
+            <Pressable 
+            onPress={null} 
+            style={styles.calenderButton }>
+                <Text style={{ color:"#ffffff", fontSize: 20 }}>
+                Add dates
+                </Text>
+        </Pressable>
+        {/* <Pressable 
+            onPress={()=>navigation.navigate('Home', {
+                screen: 'Home',
+                params: {
+                    screen: 'searchResults',
+                    params: {
+                        passengers: passengers,
+                        bags:bags,
+                        viewport: route.params.viewport
+                    }
+                }
+            })} 
+            style={styles.calenderButton }>
+                <Text style={{ color:"#ffffff", fontSize: 20 }}>
+                Add dates
+                </Text>
+        </Pressable> */}
+        </View>
+</View>
         
     )
 }

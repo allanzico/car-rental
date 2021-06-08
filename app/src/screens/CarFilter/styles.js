@@ -1,22 +1,35 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'space-between',
-        height: '100%'
+        height: '100%',
+        backgroundColor: '#3282b8',
+    },
+    subContainer: {
+            height:'33%',
+            justifyContent:'space-between',
+           alignItems:'center',
+           top:50
+    },
+   
+    filterMainContainer: {
+        width:Dimensions.get('screen').width- 40,
+        borderRadius: 5,
+        backgroundColor: 'white',
+        paddingLeft:10
     },
     filterContainer: {
         flexDirection:'row',
         justifyContent:'space-between',
         marginHorizontal: 20,
         paddingVertical:20,
-        borderBottomWidth: 0.5,
-        borderColor: 'lightgrey'
+        borderBottomWidth: 0.8,
+        borderColor: 'lightgrey',
+
     },
     buttonContainer: {
         flexDirection:'row',
-        alignItems:'center'
-        
+        alignItems:'center'  
     },
     filterText: {
             fontWeight:'bold'
@@ -52,9 +65,65 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         marginHorizontal: 20,
         borderRadius: 5,
-        alignItems: 'center'
+        position: 'absolute',
+        alignItems: 'center',
+        bottom: 30
       
-    }
+    },
+    descriptionButton: {
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 3,
+        flexDirection: "row",
+        alignItems: 'center',
+        marginHorizontal: 20,
+        width:Dimensions.get('screen').width- 40,
+        top: 20,
+        zIndex: 100,
+        elevation: 1
+    },
+    descriptionButtonText: {
+        color: '#1b262c',
+        fontSize: 16,
+    },
+    calenderButton: {
+        backgroundColor: '#3282b8',
+        padding: 10,
+        borderRadius: 5,
+        width: '40%',
+        height: 50,
+        margin:  10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    priceContainer: {
+        width: '40%',
+        height: 40,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    footer: {
+        flexDirection: 'row',
+       borderRadius:5,
+        height: 100,
+        backgroundColor:'white',
+        position: 'absolute',
+        justifyContent: 'space-between',
+        alignItems:'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 7,
+        bottom:20,
+        left:20,
+        right:20
+    },
 });
 
 export default styles;

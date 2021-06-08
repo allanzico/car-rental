@@ -22,7 +22,7 @@ const LocationsScreen = () => {
            <GooglePlacesAutocomplete
                     placeholder='Search for car locations'
                     onPress={(data, details = null) => {
-                        navigation.navigate('carFilter',{viewport: details.geometry.viewport})
+                        navigation.navigate('carFilter',{data, viewport: details.geometry.viewport})
                     }}  
                     currentLocation={true}
                     currentLocationLabel='Current location'
