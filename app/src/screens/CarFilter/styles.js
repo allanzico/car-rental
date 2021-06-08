@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#3282b8',
     },
     subContainer: {
-            height:'33%',
+            height:'45%',
             justifyContent:'space-between',
            alignItems:'center',
            top:50
@@ -16,7 +16,15 @@ const styles = StyleSheet.create({
         width:Dimensions.get('screen').width- 40,
         borderRadius: 5,
         backgroundColor: 'white',
-        paddingLeft:10
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 3,
+ 
     },
     filterContainer: {
         flexDirection:'row',
@@ -72,7 +80,7 @@ const styles = StyleSheet.create({
     },
     descriptionButton: {
         backgroundColor: 'white',
-        padding: 10,
+        padding: 15,
         borderRadius: 3,
         flexDirection: "row",
         alignItems: 'center',
@@ -80,7 +88,14 @@ const styles = StyleSheet.create({
         width:Dimensions.get('screen').width- 40,
         top: 20,
         zIndex: 100,
-        elevation: 1
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 3,
     },
     descriptionButtonText: {
         color: '#1b262c',
@@ -91,13 +106,13 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         width: '40%',
-        height: 50,
+        height: 40,
         margin:  10,
         justifyContent: 'center',
         alignItems: 'center',
         
     },
-    priceContainer: {
+    skipContainer: {
         width: '40%',
         height: 40,
         margin: 10,
@@ -106,8 +121,8 @@ const styles = StyleSheet.create({
     },
     footer: {
         flexDirection: 'row',
-       borderRadius:5,
-        height: 100,
+        borderRadius:5,
+        height: 80,
         backgroundColor:'white',
         position: 'absolute',
         justifyContent: 'space-between',
@@ -119,7 +134,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.29,
         shadowRadius: 4.65,
-        elevation: 7,
+        elevation: 3,
         bottom:20,
         left:20,
         right:20

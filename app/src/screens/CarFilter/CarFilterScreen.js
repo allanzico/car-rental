@@ -69,7 +69,7 @@ const CarFilterScreen = () => {
 
 
         <View style={styles.footer}> 
-            <View style={styles.priceContainer}>
+            <View style={styles.skipContainer}>
             <Pressable 
             onPress={()=>navigation.navigate('Home', {
                 screen: 'Home',
@@ -83,7 +83,7 @@ const CarFilterScreen = () => {
                 }
             })} 
          >
-                <Text style={{ textDecorationLine: 'underline', fontSize:20 }}>
+                <Text style={{ textDecorationLine: 'underline', fontSize:16 }}>
                 skip
                 </Text>
         </Pressable>
@@ -93,8 +93,8 @@ const CarFilterScreen = () => {
             <Pressable 
             onPress={null} 
             style={styles.calenderButton }>
-                <Text style={{ color:"#ffffff", fontSize: 20 }}>
-                Add dates
+                <Text style={{ color:"#ffffff", fontSize: 16 }}>
+                select dates
                 </Text>
         </Pressable>
         {/* <Pressable 
