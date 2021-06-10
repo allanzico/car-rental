@@ -177,6 +177,14 @@ const CarFilterScreen = () => {
             endDate="2021-05-12"
             disabledBeforeToday = {true}
             onChange={({ startDate, endDate }) => console.log({ startDate, endDate })}
+            style={{
+
+                todayColor: '#3282b8',
+                selectedDayTextColor: 'white',
+                selectedDayBackgroundColor: '#3282b8',
+                selectedBetweenDayBackgroundTextColor: '#bbe1fa',
+              }}
+        
         />
     
          

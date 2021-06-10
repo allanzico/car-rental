@@ -139,21 +139,7 @@ const styles = StyleSheet.create({
         left:20,
         right:20
     },
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems:'center',
-        backgroundColor: 'rgba(0,0,0, .6)',
-      
-    },
-    modalView: {
-        flex:1,
-        backgroundColor:'white',
-        borderRadius: 20,
-        margin: 20,
-        padding: 20,
-        alignItems: 'center'
-    }
+ 
 });
 
 export default styles;
