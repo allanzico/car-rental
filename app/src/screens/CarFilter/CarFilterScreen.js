@@ -1,16 +1,28 @@
-import React, { useState } from 'react'
-import { View, Text, Pressable, TextInput } from 'react-native'
+import React, { useRef, useState } from 'react'
+import { View, Text, Pressable, TextInput, Platform, Modal, ScrollView, SafeAreaView } from 'react-native'
 import styles from './styles'
 import {useNavigation, useRoute} from '@react-navigation/native'
+import Calendar from "react-native-calendar-range-picker";
+import RBSheet from "react-native-raw-bottom-sheet";
+import DateRangePicker from "react-native-daterange-picker";
+import moment from 'moment'
+
+
 
 const CarFilterScreen = () => {
     const [passengers, setPassengers] = useState(0);
     const [bags, setBags] = useState(0);
+    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    const [calender, setCalender] = useState(true);
     const navigation = useNavigation();
     const route = useRoute();
-
+    const refRBSheet = useRef();
+ 
+    
     return (
-        <View style={styles.container}>
+    <View style={styles.container}>
             <View style={styles.subContainer}>
                <View>
                <Pressable
@@ -59,10 +71,9 @@ const CarFilterScreen = () => {
             </View>
 
            </View>
-           
-            
-        </View>
- </View>
+         </View>
+         
+    </View>
             
   
      
@@ -90,8 +101,9 @@ const CarFilterScreen = () => {
                
                     
             </View>
+
             <Pressable 
-            onPress={null} 
+            onPress={() => refRBSheet.current.open()}
             style={styles.calenderButton }>
                 <Text style={{ color:"#ffffff", fontSize: 16 }}>
                 select dates
@@ -114,7 +126,75 @@ const CarFilterScreen = () => {
                 Add dates
                 </Text>
         </Pressable> */}
+
+
         </View>
+
+        {/* {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onChange}
+        />
+      )} */}
+
+   
+        {/* {showCalender && <Calendar
+            startDate="2020-05-05"
+            endDate="2020-05-12"
+            onChange={({ startDate, endDate }) => console.log({ startDate, endDate })}
+        />} */}
+        <View >
+        <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#000"
+      }}
+    >
+        
+     <View>
+     <RBSheet
+        ref={refRBSheet}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+          wrapper: {
+            backgroundColor: "transparent"
+          },
+          draggableIcon: {
+            backgroundColor: "#000"
+          }
+        }}
+      >
+    
+          <Calendar
+            startDate={date}
+            endDate="2021-05-12"
+            disabledBeforeToday = {true}
+            onChange={({ startDate, endDate }) => console.log({ startDate, endDate })}
+        />
+    
+         
+
+      </RBSheet>
+     </View>
+     <View>
+         <Pressable>
+             <Text>
+             Enter
+             </Text>
+         </Pressable>
+     </View>
+     
+     
+    </View>
+</View>
+   
 </View>
         
     )
