@@ -108,45 +108,13 @@ const CarFilterScreen = () => {
                 <Text style={{ color:"#ffffff", fontSize: 16 }}>
                 select dates
                 </Text>
-        </Pressable>
-        {/* <Pressable 
-            onPress={()=>navigation.navigate('Home', {
-                screen: 'Home',
-                params: {
-                    screen: 'searchResults',
-                    params: {
-                        passengers: passengers,
-                        bags:bags,
-                        viewport: route.params.viewport
-                    }
-                }
-            })} 
-            style={styles.calenderButton }>
-                <Text style={{ color:"#ffffff", fontSize: 20 }}>
-                Add dates
-                </Text>
-        </Pressable> */}
+            </Pressable>
+      
 
 
         </View>
 
-        {/* {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )} */}
-
-   
-        {/* {showCalender && <Calendar
-            startDate="2020-05-05"
-            endDate="2020-05-12"
-            onChange={({ startDate, endDate }) => console.log({ startDate, endDate })}
-        />} */}
+      
         <View >
         <View
       style={{
@@ -162,6 +130,8 @@ const CarFilterScreen = () => {
         ref={refRBSheet}
         closeOnDragDown={true}
         closeOnPressMask={true}
+        animationType="fade"
+        height={500}
         customStyles={{
           wrapper: {
             backgroundColor: "transparent"
@@ -171,7 +141,13 @@ const CarFilterScreen = () => {
           }
         }}
       >
-    
+         <Pressable
+                    style={styles.confirmDatesButton} 
+                    onPress={()=>navigation.navigate('locations')}>
+                    <Text style={styles.confirmDatesText}>
+                    Confirm Dates
+                    </Text>
+                    </Pressable>
           <Calendar
             startDate={date}
             endDate="2021-05-12"
@@ -186,20 +162,10 @@ const CarFilterScreen = () => {
               }}
         
         />
-    
-         
 
       </RBSheet>
      </View>
-     <View>
-         <Pressable>
-             <Text>
-             Enter
-             </Text>
-         </Pressable>
-     </View>
-     
-     
+
     </View>
 </View>
    
