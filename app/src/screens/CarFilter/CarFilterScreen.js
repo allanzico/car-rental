@@ -8,19 +8,25 @@ import DateRangePicker from "react-native-daterange-picker";
 import { DatePickerModal } from 'react-native-paper-dates';
 import moment from 'moment'
 
+
+
+
 const CarFilterScreen = () => {
+    const initialStartDate = new Date();
+    const initialEndDate = new Date();
     const [passengers, setPassengers] = useState(0);
     const [bags, setBags] = useState(0);
     const navigation = useNavigation();
     const route = useRoute();
     const [open, setOpen] = useState(false);
+    const [range, setRange] = useState({ startDate: initialStartDate, endDate: initialEndDate});
 
-    const [range, setRange] = useState({ startDate: undefined, endDate: undefined });
-
+    //Dismiss calendar
     const onDismiss = useCallback(() => {
       setOpen(false);
     }, [setOpen]);
 
+    //Confirm Dates
     const onConfirm = useCallback(
       ({ startDate, endDate }) => {
         setOpen(false);
@@ -29,7 +35,7 @@ const CarFilterScreen = () => {
       [setOpen, setRange]
     );
 
-    console.log(range);
+    console.log(initialStartDate, initialEndDate);
     return (
     <View style={styles.container}>
             <View style={styles.subContainer}>
@@ -40,8 +46,9 @@ const CarFilterScreen = () => {
                     <Text style={styles.descriptionButtonText}>
                     {route.params.data.description}
                     </Text>
-                    </Pressable>
+                </Pressable>
                </View>
+               
             <View>
                  {/* Passengers button row */}
 
@@ -80,17 +87,28 @@ const CarFilterScreen = () => {
             </View>
 
            </View>
+           
          </View>
-         
-    </View>
-            
-  
-     
-
-
-        <View style={styles.footer}> 
-            <View style={styles.skipContainer}>
-            <Pressable 
+         <View>
+               <Pressable
+                    style={styles.datesContainer} 
+                    onPress={() => setOpen(true)}>
+                      <View style={styles.startDateContainer}>
+                        <Text style={{ textDecorationLine: 'underline', fontSize:16 }}>
+                          {moment(range.startDate).format('DD-MM-YYY')}
+                        </Text>
+                      </View>
+                      <View style={styles.daysContainer}>
+                        <Text style={{ fontSize:16 }}>
+                          7 days
+                        </Text>
+                      </View>
+                      <View style={styles.endDateContainer}>
+                        <Text style={{ textDecorationLine: 'underline', fontSize:16 }}>
+                        {moment(range.endDate).format('DD-MM-YYY')}
+                        </Text>
+                      </View>
+            {/* <Pressable 
             onPress={()=>navigation.navigate('Home', {
                 screen: 'Home',
                 params: {
@@ -103,22 +121,29 @@ const CarFilterScreen = () => {
                 }
             })} 
          >
-                <Text style={{ textDecorationLine: 'underline', fontSize:16 }}>
-                {} to {}
-                </Text>
-        </Pressable>
-               
-                    
-            </View>
+                
+        </Pressable> */}
 
-            <Pressable 
+                </Pressable>
+          </View>
+         
+    </View>
+            
+  
+     
+
+
+        <View style={styles.footer}> 
+
+            <Pressable style={styles.confirmDatesButton}
             onPress={() => setOpen(true)}
             style={styles.calenderButton }>
                 <Text style={{ color:"#ffffff", fontSize: 16 }}>
-                select dates
+                search
                 </Text>
-            </Pressable> 
-            <DatePickerModal
+            </Pressable>   
+        </View>
+ <DatePickerModal
         // locale={'en'} optional, default: automatic
         mode="range"
         visible={open}
@@ -138,22 +163,7 @@ const CarFilterScreen = () => {
         // endLabel="To" // optional
         // animationType="slide" // optional, default is slide on ios/android and none on web
       />
-    
-        </View>
 
-      
-        <View >
-        <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#000"
-      }}
-    >
-
-    </View>
-</View>
    
 </View>
         

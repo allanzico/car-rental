@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#3282b8',
     },
     subContainer: {
-            height:'45%',
+            height:'70%',
             justifyContent:'space-between',
            alignItems:'center',
            top:50
@@ -101,10 +101,31 @@ const styles = StyleSheet.create({
         color: '#1b262c',
         fontSize: 16,
     },
+    datesContainer: {
+        backgroundColor: 'white',
+        padding: 15,
+        borderRadius: 3,
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginHorizontal: 20,
+        width:Dimensions.get('screen').width- 40,
+        top: 20,
+        zIndex: 100,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 3,
+    },
     confirmDatesButton: {
         backgroundColor: '#3282b8',
         padding: 15,
         borderRadius: 3,
+        position: 'absolute',
         flexDirection: "row",
         alignItems: 'center',
         marginHorizontal: 20,
@@ -146,7 +167,7 @@ const styles = StyleSheet.create({
     footer: {
         flexDirection: 'row',
         borderRadius:5,
-        height: 80,
+        height: 50,
         backgroundColor:'white',
         position: 'absolute',
         justifyContent: 'space-between',
@@ -163,6 +184,7 @@ const styles = StyleSheet.create({
         left:20,
         right:20
     },
+ 
  
 });
 
