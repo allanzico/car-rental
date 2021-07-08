@@ -1,26 +1,35 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import { View, Text, Pressable, TextInput, Platform, Modal, ScrollView, SafeAreaView } from 'react-native'
 import styles from './styles'
 import {useNavigation, useRoute} from '@react-navigation/native'
 import Calendar from "react-native-calendar-range-picker";
 import RBSheet from "react-native-raw-bottom-sheet";
 import DateRangePicker from "react-native-daterange-picker";
+import { DatePickerModal } from 'react-native-paper-dates';
 import moment from 'moment'
-
-
 
 const CarFilterScreen = () => {
     const [passengers, setPassengers] = useState(0);
     const [bags, setBags] = useState(0);
-    const [date, setDate] = useState(new Date());
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-    const [calender, setCalender] = useState(true);
     const navigation = useNavigation();
     const route = useRoute();
-    const refRBSheet = useRef();
- 
-    
+    const [open, setOpen] = useState(false);
+
+    const [range, setRange] = useState({ startDate: undefined, endDate: undefined });
+
+    const onDismiss = useCallback(() => {
+      setOpen(false);
+    }, [setOpen]);
+
+    const onConfirm = useCallback(
+      ({ startDate, endDate }) => {
+        setOpen(false);
+        setRange({ startDate, endDate });
+      },
+      [setOpen, setRange]
+    );
+
+    console.log(range);
     return (
     <View style={styles.container}>
             <View style={styles.subContainer}>
@@ -95,7 +104,7 @@ const CarFilterScreen = () => {
             })} 
          >
                 <Text style={{ textDecorationLine: 'underline', fontSize:16 }}>
-                skip
+                {} to {}
                 </Text>
         </Pressable>
                
@@ -103,15 +112,33 @@ const CarFilterScreen = () => {
             </View>
 
             <Pressable 
-            onPress={() => refRBSheet.current.open()}
+            onPress={() => setOpen(true)}
             style={styles.calenderButton }>
                 <Text style={{ color:"#ffffff", fontSize: 16 }}>
                 select dates
                 </Text>
-            </Pressable>
-      
-
-
+            </Pressable> 
+            <DatePickerModal
+        // locale={'en'} optional, default: automatic
+        mode="range"
+        visible={open}
+        onDismiss={onDismiss}
+        startDate={range.startDate}
+        endDate={range.endDate}
+        onConfirm={onConfirm}
+        // validRange={{
+        //   startDate: new Date(2021, 1, 2),  // optional
+        //   endDate: new Date(), // optional
+        // }}
+        // onChange={} // same props as onConfirm but triggered without confirmed by user
+        // locale={'nl'} // optional
+        // saveLabel="Save" // optional
+        // label="Select period" // optional
+        // startLabel="From" // optional
+        // endLabel="To" // optional
+        // animationType="slide" // optional, default is slide on ios/android and none on web
+      />
+    
         </View>
 
       
@@ -124,47 +151,6 @@ const CarFilterScreen = () => {
         backgroundColor: "#000"
       }}
     >
-        
-     <View>
-     <RBSheet
-        ref={refRBSheet}
-        closeOnDragDown={true}
-        closeOnPressMask={true}
-        animationType="fade"
-        height={500}
-        customStyles={{
-          wrapper: {
-            backgroundColor: "transparent"
-          },
-          draggableIcon: {
-            backgroundColor: "#000"
-          }
-        }}
-      >
-         <Pressable
-                    style={styles.confirmDatesButton} 
-                    onPress={()=>navigation.navigate('locations')}>
-                    <Text style={styles.confirmDatesText}>
-                    Confirm Dates
-                    </Text>
-                    </Pressable>
-          <Calendar
-            startDate={date}
-            endDate="2021-05-12"
-            disabledBeforeToday = {true}
-            onChange={({ startDate, endDate }) => console.log({ startDate, endDate })}
-            style={{
-
-                todayColor: '#3282b8',
-                selectedDayTextColor: 'white',
-                selectedDayBackgroundColor: '#3282b8',
-                selectedBetweenDayBackgroundTextColor: '#bbe1fa',
-              }}
-        
-        />
-
-      </RBSheet>
-     </View>
 
     </View>
 </View>
