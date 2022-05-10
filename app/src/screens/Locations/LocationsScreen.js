@@ -30,7 +30,7 @@ const LocationsScreen = () => {
                     suppressDefaultStyles
                     renderRow={(item)=><SuggestionsRow item={item} />}
                     query={{
-                        key: 'AIzaSyB61-FJ_TL4CE_PRerC5JuMtoWBDhMRIJs',
+                        key: 'API_KEY HERE',
                         language: 'en',
                     }}
                     styles={{ 
